@@ -30,16 +30,15 @@ public class CreateWorkers extends TickerBehaviour{
 	private static final long serialVersionUID = 1L;
 
 	protected void onTick() {
-		if(player.zangoes >= 3){
+		if(player.zerglings >= 3){
 			stop();
 		}else{
-			player.zangoes++;
+			player.zerglings++;
 			
 			try {
-				AgentController ac = containerController.createNewAgent("zangao" + player.zangoes, "units.Zangao", new Object[]{});
+				AgentController ac = containerController.createNewAgent("Zergling" + player.zerglings, "units.Zerglings", new Object[]{});
 				ac.start();
 			} catch (StaleProxyException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	  

@@ -12,7 +12,8 @@ public class Player extends Agent{
 
 	private static final long serialVersionUID = 1L;
 
-	public int zangoes = 0;
+	public int zerglings = 0;
+	public int minerals = 0;
 
 	protected void setup(){
 		
