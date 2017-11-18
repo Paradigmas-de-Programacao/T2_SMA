@@ -1,6 +1,7 @@
 package game;
 
 import behaviours.CreateWorkers;
+import behaviours.CreateZergs;
 import jade.core.*;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
@@ -30,6 +31,9 @@ public class Player extends Agent{
 		try{
 			DFService.register(this, dfd);
 
+			CreateZergs z = new CreateZergs();
+			addBehaviour(z);
+			
 			CreateWorkers b =  new CreateWorkers(this, 2000);
 			addBehaviour(b);
 		}catch(FIPAException e){

@@ -56,7 +56,7 @@ public class CreateWorkers extends TickerBehaviour{
 				AgentController ac = containerController.createNewAgent("Drone" + player.drones, "units.Drones", new Object[]{});
 				ac.start();
 
-				msg.addReceiver(new AID("Drone"+player.drones, AID.ISLOCALNAME));
+				msg.addReceiver(new AID("Drone" + player.drones, AID.ISLOCALNAME));
 				myAgent.send(msg);
 			} catch (StaleProxyException e) {
 				e.printStackTrace();
