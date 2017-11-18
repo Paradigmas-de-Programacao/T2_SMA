@@ -5,12 +5,12 @@ import jade.lang.acl.ACLMessage;
 import behaviours.CollectGas;
 import behaviours.CollectMinerals;
 
-public class Zerglings extends Agent{
+public class Drones extends Agent{
 
 	private static final long serialVersionUID = 1L;
 	
 	protected void setup(){
-		System.out.println("Zergling Born!");
+		System.out.println("Drone Born!");
 		CollectMinerals fm =  new CollectMinerals(this,3000);
 		CollectGas fg = new CollectGas(this, 3000);
 		

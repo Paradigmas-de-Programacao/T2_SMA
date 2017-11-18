@@ -18,10 +18,8 @@ public class CollectGas extends TickerBehaviour {
 	protected void onTick() {
 		
 		ACLMessage  msg = new ACLMessage(ACLMessage.INFORM);
-//		msg.setPerformative(ACLMessage.INFORM);
 		msg.setContent("Estou coletando gas !");
 		msg.addReceiver(new AID("Player", AID.ISLOCALNAME));
-//		System.out.println("Enviando msg: " + msg.getContent());
 		myAgent.send(msg);
 		
 		Incubator.getInstance().setQntGas(Incubator.getInstance().getQntGas() + 3);

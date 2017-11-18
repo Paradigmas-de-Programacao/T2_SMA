@@ -19,10 +19,8 @@ public class CollectMinerals extends TickerBehaviour{
 	protected void onTick() {
 		
 		ACLMessage  msg = new ACLMessage(ACLMessage.INFORM);
-//		msg.setPerformative(ACLMessage.INFORM);
 		msg.setContent("Estou coletando minerais !");
 		msg.addReceiver(new AID("Player", AID.ISLOCALNAME));
-//		System.out.println("Enviando msg: " + msg.getContent());
 		myAgent.send(msg);
 		
 		Incubator.getInstance().setQntMinerals(Incubator.getInstance().getQntMinerals() + 5);

@@ -17,7 +17,7 @@ public class CreateWorkers extends TickerBehaviour{
 	
 	private Player player;
 	public ContainerController containerController;
-	private final int qntZerglings = 10;
+	private final int qntDrones = 5;
 	
 	public CreateWorkers(Agent a, long period) {
 		super(a, period);
@@ -25,7 +25,7 @@ public class CreateWorkers extends TickerBehaviour{
 		
 		Runtime rt = Runtime.instance();
 		Profile p = new ProfileImpl();
-		p.setParameter(Profile.CONTAINER_NAME, "Coletores de Minérios");
+		p.setParameter(Profile.CONTAINER_NAME, "Mine");
 		p.setParameter(Profile.MAIN_HOST, "localhost");
 		
 		containerController = rt.createAgentContainer(p);
@@ -35,10 +35,10 @@ public class CreateWorkers extends TickerBehaviour{
 
 	protected void onTick() {
 	
-		if(player.zerglings >= qntZerglings){
+		if(player.drones >= qntDrones){
 			stop();
 		}else{
-			player.zerglings++;
+			player.drones++;
 	
 			try {
 				ACLMessage  msg = new ACLMessage(ACLMessage.INFORM);
@@ -53,10 +53,10 @@ public class CreateWorkers extends TickerBehaviour{
 				
 				msg.setConversationId("work");
 				
-				AgentController ac = containerController.createNewAgent("Zergling" + player.zerglings, "units.Zerglings", new Object[]{});
+				AgentController ac = containerController.createNewAgent("Drone" + player.drones, "units.Drones", new Object[]{});
 				ac.start();
 
-				msg.addReceiver(new AID("Zergling"+player.zerglings, AID.ISLOCALNAME));
+				msg.addReceiver(new AID("Drone"+player.drones, AID.ISLOCALNAME));
 				myAgent.send(msg);
 			} catch (StaleProxyException e) {
 				e.printStackTrace();
