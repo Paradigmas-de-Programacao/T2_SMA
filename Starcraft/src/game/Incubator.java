@@ -12,18 +12,27 @@ public class Incubator {
 	public static int qntMinerals = 0;
 	public static int qntGas = 0;
 	public static int currentSupplies = 0;
-	public static int totalSupplies = 10;
+	public static int totalSupplies = 2;
+	
 	public static int qntOverlords = 1;
+	public static int qntZerglings = 0;
 	
 	public static ContainerController overlordContainerController;
+	public static ContainerController zerglingContainerController;
+
 
 	private Incubator(){
 		Runtime rt = Runtime.instance();
+		
 		Profile pOverlord = new ProfileImpl();
 		pOverlord.setParameter(Profile.CONTAINER_NAME, "Overlord_Nest");
 		pOverlord.setParameter(Profile.MAIN_HOST, "localhost");
 		overlordContainerController = rt.createAgentContainer(pOverlord);
-
+		
+		Profile pZergling = new ProfileImpl();
+		pZergling.setParameter(Profile.CONTAINER_NAME, "Zerglings_Nest");
+		pZergling.setParameter(Profile.MAIN_HOST, "localhost");
+		zerglingContainerController = rt.createAgentContainer(pZergling);
 	}
 	
 	public static synchronized Incubator getInstance(){
@@ -34,7 +43,20 @@ public class Incubator {
 		return INSTANCE;
 	}
 	
-	public ContainerController getContainerController(){
+	public ContainerController getZerglingContainerController(){
+		return zerglingContainerController;
+	}
+	
+	public int getQntZerglings(){
+		return qntZerglings;
+	}
+	
+	public void setQntZerglings(int pqntZerglings){
+		qntZerglings = pqntZerglings;
+	}
+	
+	
+	public ContainerController getOverlordContainerController(){
 		return overlordContainerController;
 	}
 	

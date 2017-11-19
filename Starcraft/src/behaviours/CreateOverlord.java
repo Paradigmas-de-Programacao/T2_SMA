@@ -20,7 +20,7 @@ public class CreateOverlord extends OneShotBehaviour {
 		
 		try {
 		
-			AgentController ac = Incubator.getInstance().getContainerController().createNewAgent("Overlord" + Incubator.getInstance().getQntOverlords(), "units.Overlord", new Object[]{});
+			AgentController ac = Incubator.getInstance().getOverlordContainerController().createNewAgent("Overlord" + Incubator.getInstance().getQntOverlords(), "units.Overlord", new Object[]{});
 			ac.start();
 
 			Incubator.getInstance().setQntOverlords(Incubator.getInstance().getQntOverlords() + 1);
