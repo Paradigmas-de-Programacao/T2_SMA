@@ -20,7 +20,7 @@ public class Player extends Agent{
 		
 		System.out.println("Let's Play Starcraft, Baby !");
 		
-		System.out.println("Registrando player no DF !");
+		System.out.println("Register player on DF !");
 		DFAgentDescription dfd = new DFAgentDescription();
 		dfd.setName(getAID());
 		ServiceDescription sd = new ServiceDescription();
