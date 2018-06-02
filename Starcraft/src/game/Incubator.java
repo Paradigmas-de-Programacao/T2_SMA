@@ -1,9 +1,14 @@
 package game;
 
+import jade.core.AID;
 import jade.core.Profile;
 import jade.core.ProfileImpl;
 import jade.core.Runtime;
 import jade.wrapper.ContainerController;
+import units.Zergling;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Incubator {
 	
@@ -16,9 +21,11 @@ public class Incubator {
 	
 	public static int qntOverlords = 1;
 	public static int qntZerglings = 0;
-	
+
 	public static ContainerController overlordContainerController;
 	public static ContainerController zerglingContainerController;
+
+	private List<AID> zerglingAgents = new ArrayList<AID>();
 
 
 	private Incubator(){
@@ -99,5 +106,8 @@ public class Incubator {
 	public void setCurrentSupplies(int pCurrentSupplies){
 		currentSupplies = pCurrentSupplies;
 	}
-	
+
+	public List<AID> getZerglingAgents() {
+		return zerglingAgents;
+	}
 }
