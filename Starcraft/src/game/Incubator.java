@@ -2,6 +2,11 @@ package game;
 
 import jade.core.Profile;
 import jade.core.ProfileImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jade.core.AID;
 import jade.core.Runtime;
 import jade.wrapper.ContainerController;
 
@@ -19,7 +24,16 @@ public class Incubator {
 	
 	public static ContainerController overlordContainerController;
 	public static ContainerController zerglingContainerController;
+	
+	public final long SPAWN_ENEMY_TIME = 3000;
+	public final int QNT_ENEMYS = 5;
 
+	public final int MAP_DIMENSIONS = 10;
+	
+	private List<AID> workersAID = new ArrayList<AID>();
+	
+	//Mapa do jogo
+	private int[][] map = new int[MAP_DIMENSIONS][MAP_DIMENSIONS];
 
 	private Incubator(){
 		Runtime rt = Runtime.instance();
@@ -98,6 +112,35 @@ public class Incubator {
 	
 	public void setCurrentSupplies(int pCurrentSupplies){
 		currentSupplies = pCurrentSupplies;
+	}
+	
+	public List<AID> getWorkersAID() {
+		return workersAID;
+	}
+	
+	public int getMapPosition(int i, int j) {
+		return map[i][j];
+	}
+	
+	public int[][] getMap() {
+		return map;
+	}
+	
+	public void setEnemy(int i, int j) {
+		map[i][j] = 1;
+	} 
+	
+	public void printMap() {
+		System.out.println("================= MAPA =================");
+		
+		for(int i = 0; i < MAP_DIMENSIONS; i++) {
+			for(int j = 0; j < MAP_DIMENSIONS; j++) {
+				System.out.print("[" + getMapPosition(i, j) + "]" + " ");
+			}
+			System.out.println("\n");
+		}
+		
+		System.out.println("========================================");
 	}
 	
 }

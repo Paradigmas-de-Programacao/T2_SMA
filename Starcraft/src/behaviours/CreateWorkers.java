@@ -18,6 +18,7 @@ public class CreateWorkers extends TickerBehaviour{
 	private Player player;
 	public ContainerController containerController;
 	private final int qntDrones = 5;
+	Incubator incubator = Incubator.getInstance();
 	
 	public CreateWorkers(Agent a, long period) {
 		super(a, period);
@@ -55,8 +56,11 @@ public class CreateWorkers extends TickerBehaviour{
 				
 				AgentController ac = containerController.createNewAgent("Drone" + player.drones, "units.Drones", new Object[]{});
 				ac.start();
-
-				msg.addReceiver(new AID("Drone" + player.drones, AID.ISLOCALNAME));
+				
+				AID aid = new AID("Drone" + player.drones, AID.ISLOCALNAME);
+				Incubator.getInstance().getWorkersAID().add(aid);
+				
+				msg.addReceiver(aid);
 				myAgent.send(msg);
 			} catch (StaleProxyException e) {
 				e.printStackTrace();

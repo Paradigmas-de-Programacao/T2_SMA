@@ -2,6 +2,7 @@ package game;
 
 import behaviours.CreateWorkers;
 import behaviours.CreateZergs;
+import behaviours.SpawnEnemyBehaviour;
 import jade.core.*;
 import jade.domain.DFService;
 import jade.domain.FIPAException;
@@ -31,11 +32,14 @@ public class Player extends Agent{
 		try{
 			DFService.register(this, dfd);
 
-			CreateZergs z = new CreateZergs();
-			addBehaviour(z);
+//			CreateZergs z = new CreateZergs();
+//			addBehaviour(z);
+//			
+//			CreateWorkers b =  new CreateWorkers(this, 2000);
+//			addBehaviour(b);
 			
-			CreateWorkers b =  new CreateWorkers(this, 2000);
-			addBehaviour(b);
+			SpawnEnemyBehaviour s = new SpawnEnemyBehaviour(this, Incubator.getInstance().SPAWN_ENEMY_TIME);
+			addBehaviour(s);
 		}catch(FIPAException e){
 			e.printStackTrace();
 			doDelete();
