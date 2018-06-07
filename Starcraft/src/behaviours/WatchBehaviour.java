@@ -1,13 +1,14 @@
 package behaviours;
 
 import game.Incubator;
-import jade.core.Agent;
-import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.SimpleBehaviour;
-import jade.core.behaviours.TickerBehaviour;
 
 public class WatchBehaviour extends SimpleBehaviour{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Incubator incubator = Incubator.getInstance();
 	private Boolean finish = false;
 	
@@ -31,4 +32,16 @@ public class WatchBehaviour extends SimpleBehaviour{
 		return finish;
 	}
 
+//	@Override
+//	public int onEnd() {
+//		ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
+//		msg.setPerformative(ACLMessage.INFORM);
+//		msg.setContent("Estamos sendo atacados ! Run to the hills !");
+//		msg.setConversationId("underAttack");
+//
+//		msg.addReceiver();
+//		myAgent.send(msg);
+//
+//		return super.onEnd();
+//	}
 }

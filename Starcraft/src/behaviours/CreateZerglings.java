@@ -1,8 +1,11 @@
 package behaviours;
 
 import game.Incubator;
+import jade.core.Agent;
 import jade.core.behaviours.OneShotBehaviour;
+import jade.tools.logging.LogManagerAgent;
 import jade.wrapper.AgentController;
+import jade.wrapper.ContainerController;
 import jade.wrapper.StaleProxyException;
 
 public class CreateZerglings extends OneShotBehaviour{
@@ -16,15 +19,17 @@ public class CreateZerglings extends OneShotBehaviour{
 		System.out.println("Create Zerglings ! Your army is ready to fight !");
 		
 		try {
-			
+
+			zergling.na
 			AgentController ac = incubator.getZerglingContainerController().createNewAgent("Zergling" + incubator.getQntZerglings(), "units.Zergling", new Object[]{});
 			ac.start();
 
+			incubator.getZerglingAgents().add(ac)
 			incubator.setQntZerglings(incubator.getQntZerglings() + 1);
-			
+
 			System.out.println("Qnt Zerglings: "+ incubator.getQntZerglings());
 			
-		} catch (StaleProxyException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -2,6 +2,7 @@ package units;
 
 import behaviours.ZerglingBehaviour;
 import jade.core.Agent;
+import jade.core.behaviours.ParallelBehaviour;
 
 public class Zergling extends Agent{
 
@@ -14,9 +15,14 @@ public class Zergling extends Agent{
 	@Override
 	protected void setup() {
 		ZerglingBehaviour z = new ZerglingBehaviour();
+<<<<<<< HEAD
 		System.out.println("Zergling iniciando sua Máquina de Estados !");
 		
 		this.addBehaviour(z);
+=======
+		System.out.println("Zergling start your State Machine !");
+>>>>>>> 5ab3026b30a66f25b105420c6a8d2b5674c3a98d
 	}
+
 }
 	

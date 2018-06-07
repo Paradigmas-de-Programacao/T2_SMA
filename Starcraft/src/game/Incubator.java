@@ -1,5 +1,6 @@
 package game;
 
+import jade.core.AID;
 import jade.core.Profile;
 import jade.core.ProfileImpl;
 
@@ -9,6 +10,10 @@ import java.util.List;
 import jade.core.AID;
 import jade.core.Runtime;
 import jade.wrapper.ContainerController;
+import units.Zergling;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Incubator {
 	
@@ -21,19 +26,24 @@ public class Incubator {
 	
 	public static int qntOverlords = 1;
 	public static int qntZerglings = 0;
-	
+
 	public static ContainerController overlordContainerController;
 	public static ContainerController zerglingContainerController;
 	
 	public final long SPAWN_ENEMY_TIME = 3000;
 	public final int QNT_ENEMYS = 5;
 
+<<<<<<< HEAD
 	public final int MAP_DIMENSIONS = 10;
 	
 	private List<AID> workersAID = new ArrayList<AID>();
 	
 	//Mapa do jogo
 	private int[][] map = new int[MAP_DIMENSIONS][MAP_DIMENSIONS];
+=======
+	private List<AID> zerglingAgents = new ArrayList<AID>();
+
+>>>>>>> 5ab3026b30a66f25b105420c6a8d2b5674c3a98d
 
 	private Incubator(){
 		Runtime rt = Runtime.instance();
@@ -113,6 +123,7 @@ public class Incubator {
 	public void setCurrentSupplies(int pCurrentSupplies){
 		currentSupplies = pCurrentSupplies;
 	}
+<<<<<<< HEAD
 	
 	public List<AID> getWorkersAID() {
 		return workersAID;
@@ -143,4 +154,10 @@ public class Incubator {
 		System.out.println("========================================");
 	}
 	
+=======
+
+	public List<AID> getZerglingAgents() {
+		return zerglingAgents;
+	}
+>>>>>>> 5ab3026b30a66f25b105420c6a8d2b5674c3a98d
 }
